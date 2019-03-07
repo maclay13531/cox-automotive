@@ -1,0 +1,27 @@
+.HourSlot {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+}
+
+.Open {
+    background-color: #228B22;
+}
+
+.Open:hover {
+    cursor: pointer;
+    background: #006400;
+}
+
+.Close {
+    background-color: #B22222;
+}
+
+.Close:hover {
+    cursor: pointer;
+    background: #8B0000;
+}

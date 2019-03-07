@@ -1,0 +1,39 @@
+.Green {
+    color: #228B22;
+}
+
+.Red {
+    color: #B22222;
+}
+
+.ModalForm input {
+    width: 100%;
+    border: none;
+}
+
+.UpdateBtn {
+    border: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #228B22;
+    color: white;
+}
+
+.UpdateBtn:hover {
+    cursor: pointer;
+    background: #006400;
+}
+
+.CloseBtn {
+    border: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    background: #B22222;
+    color: white;
+}
+
+.CloseBtn:hover {
+    cursor: pointer;
+    background: #8B0000;
+}
