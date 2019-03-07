@@ -13,9 +13,9 @@ const hourSlot = [
     },
     {
         hour: '11:00 AM ~ 12:00 PM',
-        availability: false,
-        name: 'Isaac Hickson',
-        number: '678.645.8071'
+        availability: true,
+        name: '',
+        number: ''
     },
     {
         hour: '12:00 PM ~ 1:00 PM',
@@ -49,10 +49,22 @@ const hourSlot = [
     }
 ];
 
-export default function(state = hourSlot, action){
-	if(action.type === 'UPDATE_HOUR_SLOT'){
-		console.log(action);
-		return action.payload;
-	}
-	return state;
+export default function (state = hourSlot, action) {
+    if (action.type === 'UPDATE_HOUR_SLOT') {
+        const index = hourSlot.findIndex((slot) => {
+            return action.hourSlot === slot.hour;
+        });
+        const update = {
+            availability: false,
+            name: action.name,
+            number: action.number
+        };
+        const updatedHourSlot = Object.assign(hourSlot[index], update);
+        return [
+            ...hourSlot.slice(0, index),
+            updatedHourSlot,
+            ...hourSlot.slice(index + 1)
+        ];
+    }
+    return state;
 }

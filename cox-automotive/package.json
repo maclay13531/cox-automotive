@@ -8,7 +8,8 @@
     "react-modal": "^3.8.1",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.5",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "sweetalert2": "^8.2.6"
   },
   "scripts": {
     "start": "react-scripts start",

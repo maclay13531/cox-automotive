@@ -1,6 +1,8 @@
-export default function updateHourSlot(hourSlot) {
+export default function updateHourSlot(hourSlot, name, number) {
     return {
         type: 'UPDATE_HOUR_SLOT',
-        payload: hourSlot
-    }
+        hourSlot: hourSlot,
+        name: name,
+        number: number
+    };
 }

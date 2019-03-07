@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import Swal from 'sweetalert2';
 
 import Layout from './container/Layout/Layout';
 import HourSlot from './components/HourSlot/HourSlot';
@@ -51,9 +52,16 @@ class App extends Component {
   updateHourSlotHandler = () => {
     const name = document.getElementById('Name').value;
     const number = document.getElementById('Number').value;
-    console.log(name);
-    console.log(number);
-    console.log(this.state.selectedSlot);
+    if (!name && !number) {
+      console.log('empty');
+      Swal.fire({
+        title: 'Not enough info',
+        text: 'Please fill in at least one text box!',
+        type: 'warning',
+      })
+    } else {
+      this.props.updateHourSlot(this.state.selectedSlot, name, number);
+    }
   }
 
   render() {
@@ -64,7 +72,7 @@ class App extends Component {
           availability={slot.availability}
           clicked={this.openModal}
           key={index} />
-      )
+      );
     });
 
     let selectedHourSlot = null;
@@ -73,7 +81,6 @@ class App extends Component {
       let selectedHour = this.props.hourSlotToDisplay.find((slot) => {
         return slot.hour === this.state.selectedSlot;
       });
-      console.log(selectedHour);
       switch (selectedHour.availability) {
         case (true):
           selectedHourSlot = (
@@ -136,13 +143,13 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     hourSlotToDisplay: state.slot
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      UpdateHourSlot: UpdateHourSlot
+      updateHourSlot: UpdateHourSlot
     },
     dispatch
   );

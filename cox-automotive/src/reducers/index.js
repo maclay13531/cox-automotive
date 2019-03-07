@@ -3,6 +3,6 @@ import HourSlotReducer from './HourSlotReducer';
 
 const rootReducers = combineReducers({
 	slot: HourSlotReducer
-})
+});
 
 export default rootReducers;
