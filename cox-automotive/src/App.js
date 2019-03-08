@@ -81,8 +81,7 @@ class App extends Component {
       let selectedHour = this.props.hourSlotToDisplay.find((slot) => {
         return slot.hour === this.state.selectedSlot;
       });
-      switch (selectedHour.availability) {
-        case (true):
+      if (selectedHour.availability) {
           selectedHourSlot = (
             <Aux>
               <h3 className={styles.Green}>{this.state.selectedSlot}</h3>
@@ -94,8 +93,7 @@ class App extends Component {
               <button onClick={this.closeModal} className={styles.CloseBtn}>Close</button>
             </Aux>
           );
-          break;
-        case (false):
+            }  else {
           selectedHourSlot = (
             <Aux>
               <h3 className={styles.Red}>{this.state.selectedSlot}</h3>
@@ -111,9 +109,6 @@ class App extends Component {
               <button onClick={this.closeModal} className={styles.CloseBtn}>Close</button>
             </Aux>
           );
-          break;
-        default:
-          break;
       }
     }
 
